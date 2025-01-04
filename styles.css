@@ -1,0 +1,767 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #F7F5E8;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    background-color: #003366;
+    color: white;
+	transition: background-color 0.3s ease, color 0.3s ease;
+    position: fixed; /* Makes the header fixed at the top */
+    top: 0; /* Position it at the very top */
+    left: 0; /* Align to the left edge */
+    right: 0; /* Align to the right edge */
+    z-index: 10; /* Ensures it's above other elements */
+}
+
+.branding {
+    margin-top: 20px;
+}
+
+.branding h1 {
+    text-align: center; /* Center-align the text */
+    margin: 0; /* Remove extra margin */
+    line-height: 1; /* Adjust line height for better spacing */
+}
+
+.branding .twin {
+    font-size: 1.5rem; /* Slightly larger for emphasis */
+    display: block; /* Ensure it acts as a block element */
+    font-weight: bold;
+}
+
+.branding .ambassador {
+    font-size: 1rem; /* Smaller font size */
+    display: block;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0; /* Remove extra margins */
+    padding: 0; /* Remove extra padding */
+}
+
+nav ul li {
+    margin: 0 5px; /* Compact spacing between items */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+	font-weight: bold;
+    font-size: 0.9rem; /* Smaller font size */
+    padding: 3px 6px; /* Compact padding */
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #00509e; /* Highlight on hover */
+}
+
+/* Hero Section */
+#hero {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space out items horizontally */
+    text-align: center;
+    padding: 20px;
+    padding-top: 130px; /* Add padding to the top to avoid overlap with the fixed header */
+    color: #6F0707;
+}
+
+
+/* Hero Text */
+.hero-text {
+    flex: 1; /* Occupies remaining space */
+    width: 36%;
+    margin: 0 20px; /* Spacing on the sides */
+    text-align: center;
+}
+
+.hero-text h1 {
+    font-size: 2.5em;
+    margin: 0 0 10px;
+}
+
+.hero-text p {
+    font-size: 1.2em;
+    margin: 10px 0 0;
+}
+
+/* Shared Image Wrapper Class */
+.image-wrapper {
+    background-image: url('images/emily.jpg'), url('images/fallback-image.jpg'); /* Fallback image */
+}
+
+.image-wrapper1 {
+    background-image: url('images/Gamer.png'), url('images/fallback-image.jpg'); /* Fallback image */
+}
+
+.image-wrapper, .image-wrapper1 {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    border-radius: 2px;
+    height: 300px;
+    width: 300px;
+    transition: transform 0.3s ease; /* Smooth transition on scaling */
+}
+
+/* General wrapper styling */
+.image-wrapper, .image-wrapper1 {
+    position: relative;
+    display: inline-block;
+    width: 300px; /* Example width, adjust as needed */
+    height: 300px; /* Example height, adjust as needed */
+    background-color: #ddd; /* Placeholder for image background */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Ensures content stays inside the wrapper */
+    transition: transform 0.3s ease; /* Smooth zoom effect */
+}
+
+.image-wrapper:hover, .image-wrapper1:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Overlay containing icons */
+.image-wrapper .lay, .image-wrapper1 .lay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 15px; /* Spacing between icons */
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease; /* Smooth fade-in effect */
+    z-index: 2; /* Ensure the icons appear above the image */
+}
+
+/* Show icons on hover */
+.image-wrapper:hover .lay, .image-wrapper1:hover .lay {
+    opacity: 1; /* Make icons visible */
+}
+
+/* Icon link styling */
+.image-wrapper .lay a, .image-wrapper1 .lay a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: #003366; /* Deep blue background */
+    color: white;
+    border-radius: 50%; /* Circular shape */
+    font-size: 1.5em; /* Larger icon size */
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow for emphasis */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Icon hover effect */
+.image-wrapper .lay a:hover, .image-wrapper1 .lay a:hover {
+    background-color: #ff5733; /* Bright orange for hover */
+    transform: scale(1.2); /* Slightly enlarge on hover */
+    color: white;
+}
+
+#services {
+    padding: 50px 20px;
+    text-align: center;
+    overflow: hidden; /* Hide content outside the viewport */
+    position: relative;
+}
+
+#services h2 {
+    margin-bottom: 20px;
+	color: #6F0707;
+}
+
+/* Container sliding effect */
+.service-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    position: relative;
+    animation: slide-in 5s ease-out forwards; /* Slide duration */
+    will-change: transform; /* Hint to the browser for better performance */
+    backface-visibility: hidden; /* Fix for rendering glitches */
+	opacity: 0;
+    transform: translateX(100%); /* Start off-screen */
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+
+/* Service boxes */
+.service {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1 1 auto;
+    box-sizing: border-box;
+    min-width: 200px;
+    text-align: center;
+}
+
+.service h3 {
+    margin-top: 0;
+    color: #421EF7;
+}
+
+.service{
+color: #6F0707;
+}
+
+.service-container.visible {
+    opacity: 1;
+    transform: translateX(0); /* Move to normal position */
+}
+
+/* Animation */
+@keyframes slide-in {
+    0% {
+        transform: translateX(100%); /* Start outside the viewport on the right */
+    }
+    100% {
+        transform: translateX(0); /* Stop at its normal position */
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+/* Container styling */
+#about {
+    display: flex;
+    gap: 20px; /* Space between the two sections */
+    background-color: #f8f9fa; /* Subtle container background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 40px; /* Space between container and edge of screen */
+    margin: 20px; /* Adds external spacing from other elements */
+}
+
+/* Heading styling */
+.section-heading {
+    font-family: 'Georgia', serif; /* Elegant serif font */
+    font-size: 24px;
+    color: #003366; /* Dark Slate Blue for elegance */
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase; /* Makes the text look bold and prominent */
+    letter-spacing: 1.5px; /* Slight spacing for readability */
+    border-bottom: 2px solid #3498db; /* Underline effect with a nice accent color */
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+
+/* Left section styling */
+.left-section {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    background-color: #ffebcd; /* Blanched Almond */
+    border-radius: 8px;
+}
+
+/* Right section styling */
+.left-section1 {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    background-color: #e6f7ff; /* Light Cyan */
+    border-radius: 8px;
+}
+
+/* General styling for info lists */
+.info {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left; /* Aligns items to the same edge */
+}
+
+.info li {
+    margin-bottom: 10px; /* Adds spacing between items */
+	font-size: 14px;
+}
+
+.info a { 
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 10px;
+    height: 10px;
+    color: #0d8bf2;
+    border-radius: 50%; /* Circular shape */
+    font-size: 1.5em;
+    text-decoration: none;
+	margin-right: 10px; /* Adds space between icons */
+    font-size: 18px; /* Optional: Makes the icons more prominent */
+    
+}
+
+.info a:hover{
+    background-color: white; /* Slightly darker blue on hover */
+    transform: scale(1.1); /* Slight scale effect on hover */
+    filter: brightness(0.8); /* Darken the icon on hover */
+	transition: background-color 0.3s ease, transform 0.3s ease;
+	
+}
+
+.skills {
+    margin-top: 20px;
+}
+
+.skill {
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    background-color: #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 8px;
+	margin-top: 5px;
+}
+
+.progress {
+    background-color: #003366;
+    height: 100%;
+    transition: width 0.3s;
+}
+
+
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.skills {
+    text-align: left;
+}
+
+.skills h3 {
+    margin-bottom: 10px;
+}
+
+.skill {
+    margin-bottom: 15px;
+}
+
+.skill span {
+    font-size: 14px;
+}
+
+.right-section {
+    flex: 2;
+    padding: 20px;
+}
+
+.right-section h1 {
+    margin-bottom: 10px;
+    color: #6F0707;
+}
+
+.right-section h1 span {
+    color: brown;
+}
+
+.right-section h3 {
+    margin-bottom: 10px;
+}
+
+.right-section p {
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.rgb1{
+color: brown;
+font-weight: bold; 
+}
+
+.rgb{
+color: #003366;
+}
+
+/* Style for project links */
+.project-link {
+    color: #6F0707; /* Base color for links */
+    font-weight: bold; /* Make the links bold */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease, text-decoration 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover effect for project links */
+.project-link:hover {
+    color: #421EF7; /* Change to purple on hover */
+    text-decoration: underline; /* Add underline on hover */
+}
+
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
+}
+
+.container-hover-effect {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.container-hover-effect:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    animation: shake 0.5s;
+}
+
+/* Contact section */
+#contact {
+    background-color: #f7f8fc;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.contact-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+	justify-content: center;
+    align-items: center;
+    margin: 50px auto;
+    max-width: 800px;
+    gap: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Style for the link */
+a.highlights.bold-text {
+    color: brown; /* Brown color for REQUEST */
+    font-size: 1.5em; /* Large text size */
+    font-weight: bold; /* Bold text */
+    text-decoration: none; /* Remove underline */
+    margin: 0 5px; /* Add space between brackets and the word */
+}
+
+/* Hover effect for the link */
+a.highlights.bold-text:hover {
+    text-decoration: underline; /* Optional underline on hover */
+    color: darkbrown; /* Slightly darker brown on hover */
+}
+
+
+
+/* Keyframes for Left Slide */
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Keyframes for Right Slide */
+@keyframes slideInRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+
+/* Info Styling */
+.contact-info, .contact-info2 {
+    display: inline-block;
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    text-align: left;
+	opacity: 0;
+	transition: opacity 0.5s ease-in-out; /* Smooth transition */
+}
+
+.contact-info, .contact-info2  i {
+    color: #e60023; /* Icon color */
+    font-weight: bold;
+    font-size: 1.8rem; /* Larger icon size */
+    margin-right: 10px; /* Space between icon and text */
+    vertical-align: middle; /* Aligns the icon with text */
+}
+
+.contact-info, .contact-info2  h3 {
+    color: #e60023;
+    /* margin-bottom: 10px; */
+}
+
+.contact-info, .contact-info2  h2 {
+    margin-bottom: 20px;
+}
+
+.contact-info, .contact-info2  p {
+    margin: 10px 0;
+	 margin-bottom: 15px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Style for the call icon */
+.red-bracket strong {
+    color: brown; /* Red color for brackets */
+    font-size: 1.8em; /* Match text size */
+    font-weight: bold; /* Bold brackets */
+}
+
+.contact-info .call-icon{
+    font-size: 1.9em; /* Larger icon size */
+    vertical-align: middle; /* Align with text */
+    color: brown; /* Icon color */
+    margin-right: 10px; /* Spacing between icon and text */
+}
+
+.contact-info2 .call-icon {
+    font-size: 1.9em; /* Larger icon size */
+    vertical-align: middle; /* Align with text */
+    color: brown; /* Icon color */
+    margin-right: 10px; /* Spacing between icon and text */
+}
+
+.contact-info, .contact-info2 .call-section {
+    display: inline-flex;
+    align-items: center;
+}
+
+
+.info-label {
+    margin-right: 5px;
+    font-size: 1.5rem; /* Increase "Call me" and "Email" text size */
+    font-weight: bold; /* Make text bold */
+    color: #333; /* Optional: Adjust color for better visibility */
+}
+
+.highlight {
+    font-weight: bold;
+	font-size: 1.5rem; 
+    color: #e60023;
+	text-decoration: none;
+}
+
+.bold-text {
+    font-weight: bold; /* Make text bold */
+}
+
+a.highlight {
+    text-decoration: none; /* Remove underline for email */
+}
+
+a.highlight:hover {
+    text-decoration: none; /* Add underline on hover */
+    color: #000; /* Change color on hover */
+}
+
+/* Goal statement styling */
+.goal-statement {
+    display: inline-block;
+    white-space: nowrap; /* Prevents text wrapping */
+    animation: slide-horizontal 10s linear infinite; /* Continuous horizontal animation */
+    font-size: 24px;
+    font-weight: bold;
+    color: #003366; /* Darker text for readability */
+}
+
+.goal-container h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: brown; /* Accent color for the heading */
+}
+
+/* Optional container to hide overflow */
+#goal {
+    overflow: hidden; /* Ensures content outside the container is hidden */
+    padding: 20px;
+    text-align: center;
+    background-color: #F7F5E8; /* Light blue background */
+    font-family: 'Arial', sans-serif;
+    position: relative;
+}
+
+
+/* Animation for continuous straight-line movement */
+@keyframes slide-horizontal {
+    0% {
+        transform: translateX(100%); /* Start off-screen to the right */
+    }
+    100% {
+        transform: translateX(-100%); /* Move off-screen to the left */
+    }
+}
+
+
+
+ footer {
+            background-color: #003366;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        footer .social-media a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        footer .social-media a:hover {
+            color: #00509e;
+        }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #hero h1 {
+        font-size: 2em;
+    }
+
+    .service-container {
+        flex-direction: column;
+    }
+
+    .service {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    header .branding h1 {
+        font-size: 1.2em;
+    }
+
+    #hero h1 {
+        font-size: 1.5em;
+    }
+
+    #hero p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-image {
+        width: 25%; /* Shrink images slightly on smaller devices */
+        max-width: 150px; /* Further limit size */
+    }
+
+    .hero-text h1 {
+        font-size: 1.8em;
+    }
+
+    .hero-text p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-container {
+        flex-direction: column; /* Stack items vertically */
+    }
+
+    .hero-image {
+        width: 50%; /* Images take up 50% of the container width */
+        max-width: 120px;
+    }
+
+    .hero-text {
+        max-width: 100%; /* Text takes full width on small screens */
+    }
+
+    .hero-text h1 {
+        font-size: 1.5em;
+    }
+
+    .hero-text p {
+        font-size: 0.9em;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #hero {
+        flex-direction: column; /* Stack items vertically */
+    }
+
+    .image-wrapper {
+        width: 50%; /* Adjust image size */
+        max-width: 150px;
+    }
+
+    .hero-text {
+        max-width: 100%; /* Full width text */
+        margin: 20px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-wrapper {
+        width: 70%; /* Further reduce image size */
+    }
+
+    .hero-text h1 {
+        font-size: 2em;
+    }
+
+    .hero-text p {
+        font-size: 1em;
+    }
+}
